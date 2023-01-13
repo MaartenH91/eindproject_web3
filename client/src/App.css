@@ -1,0 +1,108 @@
+body {
+  font-size: 12pt;
+  font-family: "Lucida Sans";
+  color: #3e363f;
+  background-color: rgba(115, 165, 128,0.3);
+}
+
+.link {
+  color: #73a580;
+  text-decoration: none;
+}
+
+.link:hover {
+  color: #3e363f;
+}
+
+.nav {
+  background-color: #73a580;
+  margin-top: 0px;
+  padding: 10px;
+}
+
+.nav-link {
+  border: #73a580 1px solid;
+  color: #3e363f;
+}
+
+
+.navItem {
+  text-decoration:none;
+}
+.nav-link:hover {
+  border: #3e363f 1px solid;
+  color: #3e363f;
+}
+
+.container-fluid {
+  margin: 0;
+  padding: 0;
+}
+
+.content {
+  padding: 2%;
+}
+
+.product {
+  width: 30%;
+  border: #3e363f 1px solid;
+  display: inline-block;
+  margin: 0 0 10px 10px;
+  padding: 0.5%;
+}
+
+.product h3 {
+  font-size: 1.3em;
+  font-weight: bold;
+  display: inline-block;
+}
+
+.productTitle {
+  float: left;
+}
+
+.productPrice {
+  float: right;
+}
+
+.productDesc {
+  clear: both;
+  word-wrap: break-word;
+  white-space: pre-wrap;
+  font-size: 0.9em;
+  opacity: 80%;
+}
+
+.product button {
+  float: right;
+}
+
+.pageDescription {
+  border-bottom: #3e363f 1px solid;
+  margin-bottom: 10px;
+}
+
+footer {
+  background-color: #73a580;
+  margin: 0px;
+  padding: 10px;
+  padding-bottom: 0;
+  font-size: 0.7em;
+  text-align: center;
+  color: #3e363f;
+}
+
+footer h3 {
+  font-size: 1.4em;
+  border-bottom: #3e363f 1px solid;
+}
+
+footer a {
+  color: #3e363f;
+  text-decoration: none;
+}
+
+footer a:hover {
+  color: #3e363f;
+  text-decoration: underline;
+}
