@@ -82,6 +82,41 @@ body {
   margin-bottom: 10px;
 }
 
+#confirmUser fieldset {
+  border-left: #3e363f 1px solid;
+  padding-left: 1%;
+}
+
+#confirmUser legend {
+  font-weight: bold;
+}
+
+#confirmUser label {
+  margin: 20px 0px 5px 0px;
+}
+
+#confirmUser input {
+  margin: 10px 10px 5px 0px;
+}
+
+
+Button {
+  margin: 10px!important;
+  padding: 10px!important;
+}
+
+#confirmButton {
+  background-color: #73a580;
+  border-color: #3e363f;
+  color: #3e363f;
+}
+
+#confirmButton:hover {
+  background-color: darkolivegreen;
+  border-color: darkolivegreen;
+  color: #FFF;
+}
+
 footer {
   background-color: #73a580;
   margin: 0px;

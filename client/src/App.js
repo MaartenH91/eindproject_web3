@@ -6,6 +6,7 @@ import Home from "./components/Home"
 import Products from "./components/Products"
 import Cart from "./components/Cart"
 import Footer from "./components/Footer"
+import Confirm from"./components/Confirm"
 
 function App() {
   return (
@@ -20,6 +21,8 @@ function App() {
                     <Route path={"/home"} element={<Home />}/>
                     <Route path={"/products"} element={<Products />}/>
                     <Route path={"/cart"} element={<Cart />}/>
+                    <Route path={"/confirm"} element={<Confirm />}/>
+                    <Route path={"/confirm/:index"} element={<Confirm />}/>
                 </Routes>
             </div>
             <footer className={"fixed-bottom"}>
