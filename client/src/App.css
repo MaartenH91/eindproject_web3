@@ -82,11 +82,6 @@ body {
   margin-bottom: 10px;
 }
 
-#confirmUser fieldset {
-  border-left: #3e363f 1px solid;
-  padding-left: 1%;
-}
-
 #confirmUser legend {
   font-weight: bold;
 }
@@ -140,4 +135,21 @@ footer a {
 footer a:hover {
   color: #3e363f;
   text-decoration: underline;
+}
+
+#confirmation-table {
+  text-align: center;
+}
+
+#confirmation-table tr {
+  height: 3em;
+}
+
+#confirmation-header {
+  background-color: darkolivegreen;
+  color: #FFFFFF;
+}
+
+#confirmation-row {
+  border-bottom: 1px
 }

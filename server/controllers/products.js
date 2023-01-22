@@ -6,13 +6,19 @@ exports.getAllProducts = (req, res) => {
         .catch(err => res.status(500).send(err))
 }
 
-exports.createProduct = (req, res) => {
+exports.createOrderLine = (req, res) => {
     const product = {
-        title: req.body.title,
+        products_id: req.body.id,
+        qty: req.body.qty,
         price: req.body.price,
-        description: req.body.description,
     }
-    Product.createProduct(product)
+    Product.createOrderLine(product)
         .then(result => res.send({created:product}))
+        .catch(err => res.status(500).send(err))
+}
+
+exports.createOrder = (req,res)=>{
+    Product.createOrder()
+        .then(result => res.send("Order created"))
         .catch(err => res.status(500).send(err))
 }

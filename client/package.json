@@ -11,6 +11,7 @@
     "express-validator": "^6.14.2",
     "formik": "^2.2.9",
     "helmet": "^6.0.1",
+    "ipaddr": "^0.1.0",
     "mysql": "^2.18.1",
     "react": "^18.2.0",
     "react-bootstrap": "^2.7.0",

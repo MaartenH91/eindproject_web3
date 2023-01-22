@@ -1,10 +1,10 @@
 import React from "react";
-import {useDispatch, useSelector} from "react-redux";
-import CartItem from "./CartItem";
+import {useSelector} from "react-redux";
+import {store} from "../store";
+import {removeItem} from "../store/cart/slice";
 
 const Cart = () => {
-    const dispatch = useDispatch()
-    const cartProducts = useSelector(state => state.cart.cartItems)
+    const cartProducts = useSelector(state => state.cartItems)
     return (
         <>
             <div className={"pageDescription"}>
@@ -18,8 +18,26 @@ const Cart = () => {
                         <h4>No items added to the cart! Please add one of our products.</h4>
                         :
                         cartProducts.map((item, index)=>(
-                            <CartItem item={item} key={index} />
+                            <div>
+                                <table>
+                                    <tr>
+                                        <td>{cartProducts.qty}</td>
+                                        <td>{cartProducts.title}</td>
+                                        <td>{cartProducts.totalPrice}</td>
+                                        <td>
+                                            <button
+                                                onClick={
+                                                    () => store.dispatch(removeItem(cartProducts.id))
+                                                }
+                                            >
+                                                Delete
+                                            </button>
+                                        </td>
+                                    </tr>
+                                </table>
+                            </div>
                         ))
+
 
                 }
             </div>

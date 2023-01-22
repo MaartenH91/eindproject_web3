@@ -7,6 +7,8 @@ import Products from "./components/Products"
 import Cart from "./components/Cart"
 import Footer from "./components/Footer"
 import Confirm from"./components/Confirm"
+import Confirmation from "./components/Confirmation"
+import ConfirmationDetail from "./components/ConfirmationDetail";
 
 function App() {
   return (
@@ -22,7 +24,8 @@ function App() {
                     <Route path={"/products"} element={<Products />}/>
                     <Route path={"/cart"} element={<Cart />}/>
                     <Route path={"/confirm"} element={<Confirm />}/>
-                    <Route path={"/confirm/:index"} element={<Confirm />}/>
+                    <Route path={"/confirmation"} element={<Confirmation />}/>
+                    <Route path={"/confirmation/:index"} element={<ConfirmationDetail />}/>
                 </Routes>
             </div>
             <footer className={"fixed-bottom"}>

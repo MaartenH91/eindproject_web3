@@ -7,6 +7,24 @@ exports.getOrderById = (req, res) => {
         .catch(err => res.status(500).send(err))
 }
 
-exports.postOrder = (req, res) => {
+exports.getAllOrders = (req, res) => {
+    Order.fetchAllOrders()
+        .then(orders => res.json(orders))
+        .catch(err => res.status(500).send(err))
+}
 
+exports.createOrder = (req, res) => {
+    const order = {
+        firstName: req.body.firstName,
+        lastName: req.body.lastName,
+        street: req.body.street,
+        number: req.body.number,
+        postalCode: req.body.postalCode,
+        city: req.body.city,
+        telephone: req.body.telephone,
+        email: req.body.email,
+    }
+    Order.createOrder(order)
+        .then(result => res.send({created: order}))
+        .catch(err => res.status(500).send(err))
 }

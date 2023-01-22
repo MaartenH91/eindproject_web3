@@ -1,10 +1,9 @@
-import {createAsyncThunk, createSlice} from "@reduxjs/toolkit";
-import axios from "axios";
-import {init} from "express/lib/middleware/init";
+import { createSlice} from "@reduxjs/toolkit";
 
 const initialState = {
     cartItems: [],
-    totalPrice: 0
+    totalQuantity: 0,
+    totalAmount: 0
 }
 
 const cartSlice = createSlice({
@@ -14,20 +13,21 @@ const cartSlice = createSlice({
         addItem(state, action){
             const newItem = action.payload;
             const existingItem = state.cartItems.find(item => item.productId === newItem.productId);
+            state.totalQuantity++
             if (!existingItem){
                 state.cartItems.push({
                     title: newItem.title,
                     productId: newItem.productId,
                     qty:1,
-                    totalProductPrice: newItem.price
+                    totalPrice: newItem.price
                 })
                 state.totalPrice += newItem.price
             }
             else {
                 existingItem.qty++;
-                existingItem.totalProductPrice += existingItem.price
-                state.totalPrice += existingItem.price
+                existingItem.totalPrice += existingItem.price
             }
+            state.totalAmount = state.cartItems.reduce((total,item)=>(total+item.price*item.qty))
         },
         removeItem(state, action){
             const productId = action.payload
@@ -42,5 +42,5 @@ const cartSlice = createSlice({
 
 })
 
-export const cartActions = cartSlice.actions
-export default cartSlice
+export const {actions, reducer} = cartSlice
+export const {addItem, removeItem}=actions

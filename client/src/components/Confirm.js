@@ -1,46 +1,41 @@
 import React, {useEffect, useState} from "react";
-import {useFormik} from "formik";
+import { useFormik} from "formik";
 import axios from "axios";
 import {Button} from 'react-bootstrap';
 import {useParams} from "react-router-dom";
 
+const initialValuesForm = {
+    firstName: '',
+    lastName: '',
+    street: '',
+    number: '',
+    postalCode: '',
+    city: '',
+    telephone: '',
+    email: '',
+
+}
+
 const ConfirmForm = (props) => {
+    const{listProducts} = props
     const formik = useFormik({
-        initialValues: {
-            firstName: '',
-            lastName: '',
-            street: '',
-            number: '',
-            postalCode: '',
-            city: '',
-            telephone: '',
-            email: '',
-        },
-        onSubmit: values => {
-            axios.post('/confirm', JSON.stringify(values, null, 2))
+        initialValues: initialValuesForm,
+
+        onSubmit: (values => {
+            axios.post('/confirmation', values)
                 .then((response)=> {
                     console.log("Order confirmed")
                 })
-        }
+                .catch((error) => {
+                    console.log(error)
+                })
+            console.log(JSON.stringify(values, null, 2))
+        })
+
     })
-    let {index}=useParams();
-    const [apiConfirm, setApiConfirm] = useState(null);
-    useEffect(()=>{
-        axios.get('/products')
-            .then((response) => {
-                setApiConfirm(response.data[index])
-            })
-    }, [])
 
     return (
-        <div className={"row"}>
-            <div className={"col"} id={"confirmProducts"}>
-{/*
-                <h3>Details for order number {apiConfirm.order_id}</h3>
-*/}
-            </div>
-            <div className={"col"} id={"confirmUser"}>
-                <fieldset>
+                <fieldset className={"container"} id={"confirmUser"}>
                     <legend>User details</legend>
                     <form onSubmit={formik.handleSubmit}>
                         <div>
@@ -118,12 +113,11 @@ const ConfirmForm = (props) => {
                                 placeholder={"E-mail"}
                             />
                         </div>
-                        <Button id={"confirmButton"} variant={"dark"} type={"submit"}>Confirm order</Button>
-                        <Button id={"cancelConfirm"} variant={"dark"} type={"reset"}>Cancel order</Button>
+                        <Button id={"confirmButton"} variant={"dark"} type={"submit"}>
+                            Confirm order
+                        </Button>
                     </form>
                 </fieldset>
-            </div>
-        </div>
     )}
 
 export default ConfirmForm;

@@ -1,15 +1,9 @@
 import React from "react";
-import { useDispatch, useSelector } from "react-redux";
-import { cartActions } from '../store/cart/slice';
+import {store} from "../store";
+import { removeItem } from '../store/cart/slice';
 
 const CartItem = ({item}) => {
     const {id,qty, title, totalPrice} = item
-    const dispatch = useDispatch();
-    const cartProducts = useSelector(state => state.cart.cartItems)
-
-    const removeItem = () => {
-        dispatch(cartActions.removeItem(id))
-    }
 
     return (
         <div>
@@ -19,7 +13,11 @@ const CartItem = ({item}) => {
                     <td>{title}</td>
                     <td>{totalPrice}</td>
                     <td>
-                        <button onClick={removeItem}>
+                        <button
+                            onClick={
+                                () => store.dispatch(removeItem(id))
+                            }
+                        >
                             Delete
                         </button>
                     </td>
